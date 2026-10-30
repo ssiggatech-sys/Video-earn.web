@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VideoEarn — Watch • Share • Earn</title>
+<style>
+:root{--pink:#e81783;--deep:#a90d61;--pale:#fff0f7;--ink:#291525;--muted:#806879;--line:#f1c9df;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:#fff8fc;color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,Arial}
+header{background:linear-gradient(115deg,#f52d9a,#b50b68);color:white;padding:16px max(18px,calc((100% - 1050px)/2));display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:0 5px 20px #9b15502a}
+.brand{font-size:24px;font-weight:900;letter-spacing:-1px}.brand span{color:#ffd8ec}nav{display:flex;gap:7px;flex-wrap:wrap}nav button{background:transparent;color:white;border:1px solid #ffffff66;padding:8px 11px;border-radius:9px;font-weight:650;cursor:pointer}nav button.active,nav button:hover{background:white;color:var(--deep)}
+main{max-width:1050px;margin:26px auto;padding:0 16px;min-height:75vh}.hero{padding:30px;border-radius:22px;color:white;background:linear-gradient(135deg,#f52c9b,#8d145e);position:relative;overflow:hidden}.hero:after{content:"▶";position:absolute;right:35px;top:15px;font-size:130px;color:#ffffff19}.hero h1{font-size:clamp(32px,6vw,48px);line-height:1.05;margin:0 0 10px}.hero p{max-width:570px;color:#ffe5f2}.btn{display:inline-block;border:0;background:var(--pink);color:white;border-radius:10px;padding:11px 16px;font-weight:750;cursor:pointer;text-decoration:none}.btn.light{background:white;color:var(--deep)}.btn.ghost{background:#f9e1ef;color:var(--deep)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px;margin:18px 0}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 7px 22px #8d145e0b}.stat{font-size:27px;font-weight:850;color:var(--pink)}.muted{color:var(--muted);font-size:13px}.section-title{margin:25px 0 10px}.video-thumb{height:130px;border-radius:12px;background:linear-gradient(135deg,#fbd0e6,#e82d91);display:grid;place-items:center;color:white;font-size:44px;margin-bottom:12px}.video-thumb span{background:#ffffff35;border:1px solid #ffffff80;border-radius:50%;width:66px;height:66px;display:grid;place-items:center}.pill{display:inline-block;background:var(--pale);color:var(--deep);padding:4px 9px;border-radius:30px;font-size:12px;font-weight:700}label{display:block;margin:11px 0 5px;font-weight:650}input,select{width:100%;padding:11px;border:1px solid var(--line);border-radius:9px;font:inherit;background:white}button:disabled{opacity:.5;cursor:not-allowed}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.row input{flex:1;min-width:180px}.notice{background:#fce5f1;padding:11px 14px;border-radius:10px;margin:12px 0}.notice.good{background:#e4f7eb;color:#175e32}.notice.warn{background:#fff2d8;color:#76500a}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:10px;border-bottom:1px solid #f4dce9}footer{text-align:center;color:var(--muted);padding:25px 12px;font-size:12px}.hidden{display:none!important}.balance{font-size:32px;font-weight:900;color:var(--deep)}.tagline{font-size:12px;letter-spacing:2px;font-weight:800}
+@media(max-width:560px){header{align-items:flex-start}nav{width:100%}nav button{flex:1;font-size:12px;padding:8px 5px}.hero{padding:23px}.hero:after{right:10px;font-size:90px}}
+</style>
+</head>
+<body>
+<header>
+  <div><div class="brand">Video<span>Earn</span></div><div class="tagline">WATCH • SHARE • EARN</div></div>
+  <nav id="nav">
+    <button class="active" data-page="home">Home</button>
+    <button data-page="videos">Videos</button>
+    <button data-page="wallet">Wallet</button>
+    <button data-page="referrals">Refer</button>
+    <button data-page="admin">Admin demo</button>
+  </nav>
+</header>
+<main>
+<section id="home" class="page">
+  <div class="hero"><div class="pill">UGANDA · UGX REWARDS</div><h1>Watch. Share.<br>Earn rewards.</h1><p>Discover videos, complete eligible activities and track your rewards in one simple place.</p><button class="btn light" onclick="showPage('videos')">Explore videos →</button></div>
+  <div class="grid">
+    <div class="card"><div class="muted">Your demo wallet</div><div class="stat" id="homeBalance">UGX 0</div><span class="muted">Illustrative balance on this device</span></div>
+    <div class="card"><div class="muted">Completed activities</div><div class="stat" id="homeTasks">0</div><span class="muted">Views and shares recorded in this demo</span></div>
+    <div class="card"><div class="muted">Referral code</div><div class="stat">VEARN26</div><span class="muted">Share with friends</span></div>
+  </div>
+  <h2 class="section-title">How VideoEarn works</h2>
+  <div class="grid">
+    <div class="card"><h3>▶ Watch videos</h3><p class="muted">Browse approved videos and record a demo watch action.</p></div>
+    <div class="card"><h3>↗ Share content</h3><p class="muted">Copy a video link and record a demo share action.</p></div>
+    <div class="card"><h3>▣ Track rewards</h3><p class="muted">See your UGX demo balance and request a sample withdrawal.</p></div>
+  </div>
+  <div class="notice warn">Demo only: balances and actions are stored in this browser. They are not real money, verified views or actual payments.</div>
+</section>
+
+<section id="videos" class="page hidden">
+  <h1>Available videos</h1><p class="muted">Select a video, watch it, then record a sample activity.</p>
+  <div class="grid" id="videoGrid"></div>
+</section>
+
+<section id="wallet" class="page hidden">
+  <h1>My wallet</h1>
+  <div class="card"><div class="muted">Demo available balance</div><div class="balance" id="walletBalance">UGX 0</div><p class="muted">This is simulated money for preview purposes only.</p></div>
+  <h2 class="section-title">Request a sample withdrawal</h2>
+  <div class="card"><form id="withdrawForm"><label>Amount (UGX)</label><input id="withdrawAmount" type="number" min="5000" step="1000" placeholder="e.g. 5000" required><label>Payment method</label><select id="withdrawMethod"><option>MTN Mobile Money</option><option>Airtel Money</option></select><label>Mobile money number</label><input id="withdrawPhone" placeholder="07XXXXXXXX" required><button class="btn">Submit demo request</button></form><div id="withdrawMessage"></div></div>
+  <h2 class="section-title">Transaction history</h2><div class="card"><table><thead><tr><th>Activity</th><th>Amount</th></tr></thead><tbody id="history"></tbody></table></div>
+</section>
+
+<section id="referrals" class="page hidden">
+  <h1>Invite friends</h1><div class="card"><p>Share your personal demo referral link.</p><div class="row"><input id="refLink" readonly><button class="btn" onclick="copyReferral()">Copy link</button></div><p class="muted">Referral rewards are not activated in this HTML preview. A live service must verify referrals and fund any rewards.</p><div id="copyMsg"></div></div>
+</section>
+
+<section id="admin" class="page hidden">
+  <h1>Admin dashboard preview</h1><div class="notice warn">This is a visual demo, not a protected admin panel. Do not use it to manage real users or payments.</div>
+  <div class="grid"><div class="card"><div class="muted">Demo users</div><div class="stat">1</div></div><div class="card"><div class="muted">Activities recorded</div><div class="stat" id="adminTasks">0</div></div><div class="card"><div class="muted">Withdrawal requests</div><div class="stat" id="adminWithdrawals">0</div></div></div>
+  <div class="card"><h3>Reward settings (preview)</h3><p class="muted">Illustrative values only. In a real platform, rewards must be controlled by the server and backed by actual revenue.</p><p>Video view: <strong>UGX 100</strong></p><p>Video share: <strong>UGX 50</strong></p><p>Minimum withdrawal: <strong>UGX 5,000</strong></p></div>
+</section>
+</main>
+<footer>© 2026 VideoEarn · HTML preview · No real payments are made</footer>
+
+<script>
+const rewards={view:100,share:50,minWithdrawal:5000};
+const videos=[
+ {id:1,title:"Welcome to VideoEarn",desc:"A quick introduction to the platform.",url:"https://www.youtube.com/embed/ScMzIvxBSi4"},
+ {id:2,title:"Discover something new",desc:"A sample video card for your content feed.",url:"https://www.youtube.com/embed/ysz5S6PUM-U"},
+ {id:3,title:"Learn and get inspired",desc:"Replace this sample with a video you have permission to use.",url:"https://www.youtube.com/embed/jfKfPfyJRdk"}
+];
+let state=JSON.parse(localStorage.getItem("videoearnDemo")||'{"balance":0,"events":[],"withdrawals":[]}');
+function save(){localStorage.setItem("videoearnDemo",JSON.stringify(state));render();}
+function money(n){return "UGX "+Number(n).toLocaleString("en-UG");}
+function showPage(id){document.querySelectorAll(".page").forEach(p=>p.classList.toggle("hidden",p.id!==id));document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===id));render();}
+document.querySelectorAll("nav button").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.page)));
+function record(type,id){
+ if(state.events.some(e=>e.id===id&&e.type===type)){alert("This demo activity has already been recorded for this video.");return;}
+ const amount=type==="view"?rewards.view:rewards.share;
+ state.events.unshift({type,id,title:videos.find(v=>v.id===id).title,amount,date:new Date().toLocaleString()});
+ state.balance+=amount;save();alert("Demo activity recorded: "+money(amount)+". This is not a real payment.");
+}
+function renderVideos(){
+ document.getElementById("videoGrid").innerHTML=videos.map(v=>`<article class="card"><div class="video-thumb"><span>▶</span></div><span class="pill">SAMPLE VIDEO</span><h3>${v.title}</h3><p class="muted">${v.desc}</p><button class="btn" onclick="watchVideo(${v.id})">Watch video</button> <button class="btn ghost" onclick="shareVideo(${v.id})">Share</button></article>`).join("");
+}
+function watchVideo(id){const v=videos.find(x=>x.id===id);const win=window.open(v.url,"_blank","noopener");if(!win)alert("Allow pop-ups to open the sample video.");record("view",id);}
+function shareVideo(id){const v=videos.find(x=>x.id===id);const link=location.href.split("#")[0]+"?video="+id;if(navigator.share){navigator.share({title:v.title,url:link}).catch(()=>{});}else if(navigator.clipboard){navigator.clipboard.writeText(link).then(()=>alert("Sample video link copied."));}record("share",id);}
+function render(){
+ const tasks=state.events.length;
+ document.getElementById("homeBalance").textContent=money(state.balance);
+ document.getElementById("walletBalance").textContent=money(state.balance);
+ document.getElementById("homeTasks").textContent=tasks;
+ document.getElementById("adminTasks").textContent=tasks;
+ document.getElementById("adminWithdrawals").textContent=state.withdrawals.length;
+ document.getElementById("history").innerHTML=state.events.length?state.events.map(e=>`<tr><td>${e.type==="view"?"Video view":"Video share"}<br><span class="muted">${e.title} · ${e.date}</span></td><td>+${money(e.amount)}</td></tr>`).join(""):'<tr><td colspan="2" class="muted">No transactions yet. Try a sample video.</td></tr>';
+ document.getElementById("refLink").value=location.origin+location.pathname+"?ref=VEARN26";
+}
+document.getElementById("withdrawForm").addEventListener("submit",e=>{
+ e.preventDefault();const amount=Number(document.getElementById("withdrawAmount").value),phone=document.getElementById("withdrawPhone").value.trim(),method=document.getElementById("withdrawMethod").value;
+ const msg=document.getElementById("withdrawMessage");
+ if(amount<rewards.minWithdrawal){msg.innerHTML='<div class="notice">Minimum demo withdrawal is '+money(rewards.minWithdrawal)+'.</div>';return;}
+ if(amount>state.balance){msg.innerHTML='<div class="notice">Your demo balance is too low.</div>';return;}
+ if(!/^[+0-9 ]{9,16}$/.test(phone)){msg.innerHTML='<div class="notice">Enter a valid sample phone number.</div>';return;}
+ state.balance-=amount;state.withdrawals.unshift({amount,phone,method,status:"Demo pending"});
+ state.events.unshift({type:"withdrawal",title:"Sample withdrawal request",amount:-amount,date:new Date().toLocaleString()});
+ save();msg.innerHTML='<div class="notice good">Demo request recorded. No money has been sent.</div>';e.target.reset();
+});
+function copyReferral(){const el=document.getElementById("refLink");el.select();document.execCommand("copy");document.getElementById("copyMsg").innerHTML='<div class="notice good">Demo referral link copied.</div>';}
+renderVideos();render();if(new URLSearchParams(location.search).has("video"))showPage("videos");
+</script>
+</body>
+</html>
